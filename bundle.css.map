@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../App.svelte",
+    "../InputLink.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import Container from \"./Container.svelte\";\n</script>\n\n<style>\n  main {\n    font-family: sans-serif;\n    text-align: center;\n  }\n</style>\n\n<main>\n  <Container />\n</main>",
+    "<script>\n  import { isValidUrl } from \"./lib/UrlUtils.js\";\n  import { slide } from \"svelte/transition\";\n\n  export let onAddLink;\n  let link = \"\";\n  let error = \"\";\n  let handleClick = () => {\n    error = \"\";\n    if (isValidUrl(link)) onAddLink(link);\n    else error = \"Invalid URL\";\n  };\n</script>\n\n<style>\n  div {\n    display: block;\n    margin-top: 1em;\n    margin-bottom: 1em;\n  }\n</style>\n\n<div>\n <label for=\"link-input\">URL</label>\n <input id=\"link-input\" type=\"text\" bind:value={link}/>\n <button on:click={handleClick}>Expose</button>\n {#if !!error}\n  <div transition:slide>{error}</div>\n {/if}\n</div>"
+  ],
+  "names": [],
+  "mappings": "AAKE,IAAI,eAAC,CAAC,AACJ,WAAW,CAAE,UAAU,CACvB,UAAU,CAAE,MAAM,AACpB,CAAC;ACOD,GAAG,cAAC,CAAC,AACH,OAAO,CAAE,KAAK,CACd,UAAU,CAAE,GAAG,CACf,aAAa,CAAE,GAAG,AACpB,CAAC"
+}
