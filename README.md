@@ -1,2 +1,0 @@
-# DirectLinkGDrive
-Created with CodeSandbox
